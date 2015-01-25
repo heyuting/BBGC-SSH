@@ -9,7 +9,7 @@ ECOPHYS       DBF  (Quercus prinus in SH)
 0.2           (prop.)   litterfall as fraction of growing season
 1.0           (1/yr)    annual leaf and fine root turnover fraction
 0.7          (1/yr)    annual live wood turnover fraction
-0.005         (1/yr)    annual whole-plant mortality fraction
+0.01         (1/yr)    annual whole-plant mortality fraction
 0.0025         (1/yr)    annual fire mortality fraction
 1.2           (ratio)   (ALLOCATION) new fine root C : new leaf C
 2.2           (ratio)   (ALLOCATION) new stem C : new leaf C
