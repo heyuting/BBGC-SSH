@@ -62,7 +62,7 @@ psn_struct* psn_sun, psn_struct* psn_shade, summary_struct* summary)
 		output_map[26] = &ws->snowsubl_snk;
 		output_map[27] = &ws->canopyevap_snk;
 		output_map[28] = &ws->trans_snk;
-		
+	 	output_map[29] = &ws->soilWobs;	
 		/* water flux variables */
 		output_map[35] = &wf->prcp_to_canopyw;
 		output_map[36] = &wf->prcp_to_soilw;
@@ -74,6 +74,7 @@ psn_struct* psn_sun, psn_struct* psn_shade, summary_struct* summary)
 		output_map[42] = &wf->soilw_evap;
 		output_map[43] = &wf->soilw_trans;
 		output_map[44] = &wf->soilw_outflow;
+		output_map[45] = &wf->soilw_outflow_dummy;
 		
 		/* carbon state variables */
 		output_map[50] = &cs->leafc;
@@ -257,7 +258,8 @@ psn_struct* psn_sun, psn_struct* psn_shade, summary_struct* summary)
 		output_map[246] = &cf->cpool_deadstem_storage_gr;
 		output_map[247] = &cf->cpool_livecroot_storage_gr;
 		output_map[248] = &cf->cpool_deadcroot_storage_gr;
-		
+		output_map[249] = &cf->excess_c;
+		output_map[250] = &cf->total_assimilation;
 		/* nitrogen state variables */
 		output_map[280] = &ns->leafn;
 		output_map[281] = &ns->leafn_storage;
@@ -544,6 +546,12 @@ psn_struct* psn_sun, psn_struct* psn_shade, summary_struct* summary)
 		output_map[644] = &summary->daily_trans;
 		output_map[645] = &summary->daily_soilw;
 		output_map[646] = &summary->daily_snoww;
+		output_map[647]	= &summary->leafc;
+		output_map[648] = &summary->livestemc;
+		output_map[649] = &summary->deadstemc;
+		output_map[650] = &summary->gresp;
+		output_map[651] = &summary->cpool;
+		output_map[652] = &summary->rootc;
 	}
 	
 	return (!ok);

@@ -25,11 +25,14 @@ wflux_struct* wf)
 	leaching happens when there is outflow, as a function of the
 	presumed proportion of the soil mineral N pool which is soluble
 	(nitrates), the soil water content, and the outflow */
+	
+	
 	if (wf->soilw_outflow)
 	{
 		soilwater_nconc = MOBILEN_PROPORTION * ns->sminn/ws->soilWobs;
 		//change ws->soilw to ws->soilWobs;
-		nf->sminn_leached = soilwater_nconc * wf->soilw_outflow;
+	//	nf->sminn_leached = soilwater_nconc * wf->soilw_outflow; //(original)
+		nf->sminn_leached = soilwater_nconc * wf->soilw_outflow_dummy;
 		/* update state variables */
 		ns->nleached_snk += nf->sminn_leached;
 		ns->sminn        -= nf->sminn_leached;

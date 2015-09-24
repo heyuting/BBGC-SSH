@@ -1,0 +1,15 @@
+clear all, close all, clc;
+ %load sc.dayout.ascii
+ [LAI,C_CL,C_CLS,C_frC,C_frCS,C_lsC,C_lsCS,C_dsC,C_dsCS,C_lcrC,C_lcrCS,C_dcrC,C_dcrCS,LCT_LC,frCT_frC,lsCT_lsC,dsCT_dsC,lcrCT_lcrC,dcrCT_dcrC,dNPP,dNEE,dGPP]=...
+ textread('sc.dayout.ascii','%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f');
+ dat=[LAI,C_CL,C_CLS,C_frC,C_frCS,C_lsC,C_lsCS,C_dsC,C_dsCS,C_lcrC,C_lcrCS,C_dcrC,C_dcrCS,LCT_LC,frCT_frC,lsCT_lsC,dsCT_dsC,lcrCT_lcrC,dcrCT_dcrC,dNPP,dNEE,dGPP];
+ [row, col]=size(dat);
+ 
+ 
+ subplot(2,2,1);
+ ploto(dat(:,1));
+ title('LAI'):
+ plot(dat(:,20));
+ title('NPP');
+ plot(dat(:,14)); 
+ title();

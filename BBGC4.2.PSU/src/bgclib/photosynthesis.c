@@ -48,7 +48,6 @@ int total_photosynthesis(const metvar_struct* metv, const epconst_struct* epc,
 		fraction, and this total converted from umol/m2/s -> kgC/m2/d */
 	cf->psnsun_to_cpool = (epv->assim_sun + epv->dlmr_area_sun) *
 		epv->plaisun * metv->dayl * 12.011e-9;
-
 	/* SHADED canopy fraction photosynthesis */
 	psn_shade->c3 = epc->c3_flag;
 	psn_shade->co2 = metv->co2;
@@ -79,6 +78,8 @@ int total_photosynthesis(const metvar_struct* metv, const epconst_struct* epc,
 		fraction, and this total converted from umol/m2/s -> kgC/m2/d */
 	cf->psnshade_to_cpool = (epv->assim_shade + epv->dlmr_area_shade) *
 		epv->plaishade * metv->dayl * 12.011e-9;
+	//added by Y.H 03/31/2015 not considering N limitation in allocation;
+	cf->total_assimilation = cf->psnsun_to_cpool + cf->psnshade_to_cpool;
 	return (!ok);
 }
 
@@ -251,10 +252,13 @@ int photosynthesis(psn_struct* psn)
     psn->Av = Av = (-b + sqrt(det)) / (2.0*a);
     
     /* quadratic solution for Aj */
-	a = -4.5/g;    
+/*	a = -4.5/g;    
 	b = 4.5*Ca + 10.5*gamma + J/g - 4.5*Rd/g;
 	c = J*(gamma - Ca) + Rd*(4.5*Ca + 10.5*gamma);
-		
+*/		
+	a = -4/g;    
+	b = 4*Ca + 8*gamma + J/g - 4*Rd/g;
+	c = J*(gamma - Ca) + Rd*(4*Ca + 8*gamma);
 	if ((det = b*b - 4.0*a*c) < 0.0)
 	{
 		bgc_printf(BV_ERROR, "negative root error in psn routine\n");

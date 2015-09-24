@@ -8,17 +8,17 @@ ECOPHYS       DBF  (Quercus prinus in SH)
 0.2           (prop.)   transfer growth period as fraction of growing season
 0.2           (prop.)   litterfall as fraction of growing season
 1.0           (1/yr)    annual leaf and fine root turnover fraction
-0.7          (1/yr)    annual live wood turnover fraction
-0.01         (1/yr)    annual whole-plant mortality fraction
+0.54         (1/yr)    annual live wood turnover fraction
+0.045         (1/yr)    annual whole-plant mortality fraction//obs:or 0.045
 0.0025         (1/yr)    annual fire mortality fraction
-1.2           (ratio)   (ALLOCATION) new fine root C : new leaf C
-2.2           (ratio)   (ALLOCATION) new stem C : new leaf C
+1.0           (ratio)   (ALLOCATION) new fine root C : new leaf C *default 1.2*
+1.045           (ratio)   (ALLOCATION) new stem C : new leaf C *default 2.2*
 0.16           (ratio)   (ALLOCATION) new live wood C : new total wood C
-0.22          (ratio)   (ALLOCATION) new croot C : new stem C
-0.5           (prop.)   (ALLOCATION) current growth proportion 
+0.25          (ratio)   (ALLOCATION) new croot C : new stem C (from obs dbh & Jenkins allometric equations)
+0.0           (prop.)   (ALLOCATION) current growth proportion 
 25            (kgC/kgN) C:N of leaves
 55            (kgC/kgN) C:N of leaf litter, after retranslocation
-48            (kgC/kgN) C:N of fine roots 
+72            (kgC/kgN) C:N of fine roots *default 48*
 50.0          (kgC/kgN) C:N of live wood 
 550.0         (kgC/kgN) C:N of dead wood
 0.38          (DIM)     leaf litter labile proportion
@@ -29,16 +29,16 @@ ECOPHYS       DBF  (Quercus prinus in SH)
 0.22          (DIM)     fine root lignin proportion
 0.77          (DIM)     dead wood cellulose proportion
 0.23          (DIM)     dead wood lignin proportion
-0.001         (1/LAI/d) canopy water interception coefficient 
-0.4           (DIM)     canopy light extinction coefficient
+0.041         (1/LAI/d) canopy water interception coefficient 
+.7           (DIM)     canopy light extinction coefficient
 2.0           (DIM)     all-sided to projected leaf area ratio
-32          (m2/kgC)  canopy average specific leaf area (projected area basis)
-2.0           (DIM)     ratio of shaded SLA:sunlit SLA
+18          (m2/kgC)  canopy average specific leaf area (projected area basis)
+2           (DIM)    orig=2  ratio of shaded SLA:sunlit SLA
 0.08          (DIM)     fraction of leaf N in Rubisco
-0.006         (m/s)     maximum stomatal conductance (projected area basis)
-0.00006       (m/s)     cuticular conductance (projected area basis) 
+0.004      (m/s)     maximum stomatal conductance (projected area basis) default 0.006
+0.00001       (m/s)     cuticular conductance (projected area basis) 0.00006
 0.01          (m/s)     boundary layer conductance (projected area basis)
--0.34          (MPa)     leaf water potential: start of conductance reduction
--2.2          (MPa)     leaf water potential: complete conductance reduction
-1100.0         (Pa)      vapor pressure deficit: start of conductance reduction
-3600.0        (Pa)      vapor pressure deficit: complete conductance reduction
+-0.6          (MPa)     leaf water potential: start of conductance reduction Maybe I should change this?? 0.34
+-2.3          (MPa)     leaf water potential: complete conductance reduction  2.2
+930.0         (Pa)      vapor pressure deficit: start of conductance reduction
+4100.0        (Pa)      vapor pressure deficit: complete conductance reduction

@@ -93,8 +93,30 @@ int sitec_init(file init, siteconst_struct* sitec)
 		sitec->soil_b = -(3.10 + 0.157*clay - 0.003*sand);
 		sitec->vwc_sat = (50.5 - 0.142*sand - 0.037*clay)/100.0;
 		sitec->psi_sat = -(exp((1.54 - 0.0095*sand + 0.0063*silt)*log(10.0))*9.8e-5);
-		sitec->vwc_fc = sitec->vwc_sat*pow((-0.015/sitec->psi_sat),1.0/sitec->soil_b);
-	
+		//sitec->vwc_fc = sitec->vwc_sat*pow((-0.015/sitec->psi_sat),1.0/sitec->soil_b);
+
+/*
+		sitec->vwc_sat = 0.53; //for site 15 	
+		sitec->vwc_fc=0.35;//for site 15
+		
+		sitec->vwc_sat = 0.179; //for site 51 	
+		sitec->vwc_fc=0.178;//for site 51
+
+		sitec->vwc_sat = 0.25; //for site 53 	
+		sitec->vwc_fc=0.211;//for site 53
+
+		sitec->vwc_sat = 0.206; //for site 60 	
+		sitec->vwc_fc=0.19;//for site 60
+*/
+		sitec->vwc_sat = 0.384; //for site 61 	
+		sitec->vwc_fc=0.25;//for site 61
+/*
+		sitec->vwc_sat = 0.209; //for site 74 	
+		sitec->vwc_fc=0.18;//for site 74
+*/	
+
+//		sitec->vwc_fc = sitec->vwc_sat*pow((-0.015/sitec->psi_sat),1.0/sitec->soil_b);
+
 		/* define maximum soilwater content, for outflow calculation
 		converts volumetric water content (m3/m3) --> (kg/m2) */
 		sitec->soilw_fc = sitec->soil_depth * sitec->vwc_fc * 1000.0;

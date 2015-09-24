@@ -30,7 +30,7 @@ int csummary(cflux_struct* cf, cstate_struct* cs, summary_struct* summary)
 	npp = gpp - mr - gr;
 //printf("gpp=%f\t mr=%f\t gr=%f\t npp=%f\t ",gpp,mr,gr,npp);	
 	/* calculate daily NEP, positive for net sink */
-	/* NEP = NPP - Autotrophic Resp */
+	/* NEP = NPP - Heteotrophic Resp */
 	hr = cf->litr1_hr + cf->litr2_hr + cf->litr4_hr + cf->soil1_hr +
 		cf->soil2_hr + cf->soil3_hr + cf->soil4_hr;
 	nep = npp - hr;
@@ -92,6 +92,14 @@ int csummary(cflux_struct* cf, cstate_struct* cs, summary_struct* summary)
 		cs->livecrootc + cs->livecrootc_storage + cs->livecrootc_transfer +
 		cs->deadcrootc + cs->deadcrootc_storage + cs->deadcrootc_transfer +
 		cs->gresp_storage + cs->gresp_transfer + cs->cpool;
+	summary->leafc = cs->leafc + cs->leafc_storage + cs->leafc_transfer;
+	summary->livestemc = cs->livestemc + cs->livestemc_storage + cs->livestemc_transfer;
+	summary->deadstemc = cs->deadstemc +cs->deadstemc_storage + cs->deadstemc_transfer; 
+	summary->gresp = cs->gresp_storage + cs->gresp_transfer;
+	summary->cpool = cs->cpool;
+	summary->rootc = cs->frootc + cs->frootc_storage + cs->frootc_transfer +
+		 cs->livecrootc + cs->livecrootc_storage + cs->livecrootc_transfer +
+                cs->deadcrootc + cs->deadcrootc_storage + cs->deadcrootc_transfer;
 	summary->litrc = cs->cwdc + cs->litr1c + cs->litr2c + cs->litr3c + 
 		cs->litr4c;
 	summary->soilc = cs->soil1c + cs->soil2c + cs->soil3c + cs->soil4c;

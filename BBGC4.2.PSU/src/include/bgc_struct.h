@@ -122,7 +122,9 @@ typedef struct
     double soilw;          /* (kgH2O/m2) water stored in soil */
     			   ///////*added by Y.He Oct/29/14*////////
     double soilWobs;	   /*(kgH2)/m2) water stored in soil */
-    
+    double soilw_sat_obs;  /*(kgH2O/m2) soil water at saturation*/
+    double soilw_fc_obs;   /*(kgH2O/m2) soil water at field capacity*/
+
     double snoww;          /* (kgH2O/m2) water stored in snowpack */
     double canopyw;        /* (kgH2O/m2) water stored on canopy */
     double prcp_src;       /* (kgH2O/m2) SUM of precipitation */
@@ -146,6 +148,7 @@ typedef struct
     double soilw_evap;        /* (kgH2O/m2/d) evaporation from soil */
     double soilw_trans;       /* (kgH2O/m2/d) transpiration */     
     double soilw_outflow;     /* (kgH2O/m2/d) outflow */
+    double soilw_outflow_dummy; /*(kgH2O/m2/d) outflow calculated from obs soil moisture*/
     double et;                /* (kgH20/m2/d) evapotranspiration */
 } wflux_struct;
 
@@ -324,6 +327,8 @@ typedef struct
 	double cpool_to_deadcrootc;          /* (kgC/m2/d) */
 	double cpool_to_deadcrootc_storage;  /* (kgC/m2/d) */
 	double cpool_to_gresp_storage;       /* (kgC/m2/d) */
+	double excess_c;		     /* (kgC/m2/d) *///added by Y.H. 03/31/2015
+	double total_assimilation;	     /* (kgC/m2/d) *///added by Y.H. 03/31/2015
 	/* daily growth respiration fluxes */
 	double cpool_leaf_gr;                /* (kgC/m2/d) */
 	double cpool_leaf_storage_gr;        /* (kgC/m2/d) */
@@ -762,6 +767,12 @@ typedef struct
 	double cum_hr;         /* kgC/m2  Summed over entire simulation */
 	double cum_fire;       /* kgC/m2  Summed over entire simulation */
 	double vegc;           /* kgC/m2  total vegetation C */
+	double leafc;		/*kgC/m2  leaf C*/
+	double livestemc;
+	double deadstemc;
+	double gresp;
+	double cpool;
+	double rootc;		/*kgC/m2  root C*/
 	double litrc;          /* kgC/m2  total litter C */
 	double soilc;          /* kgC/m2  total soil C */
 	double totalc;         /* kgC/m2  total of vegc, litrc, and soilc */

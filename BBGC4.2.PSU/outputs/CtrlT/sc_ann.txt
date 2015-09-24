@@ -1,0 +1,13 @@
+Annual summary output from Biome-BGC version 4.2
+ann PRCP = annual total precipitation (mm/yr)
+ann Tavg = annual average air temperature (deg C)
+max LAI = annual maximum value of projected leaf area index (m2/m2)
+ann ET = annual total evapotranspiration (mm/yr)
+ann OF = annual total outflow (mm/yr)
+ann NPP = annual total net primary production (gC/m2/yr)
+ann NPB = annual total net biome production (gC/m2/yr)
+
+  year  ann PRCP  ann Tavg   max LAI    ann ET    ann OF   ann NPP   ann NBP
+  2008     999.0      10.2       8.4     530.5     457.8    1406.3      47.2    2729.6
+  2009    1032.6       9.8       8.2     652.0     385.6    1363.2    -102.2    2590.7
+  2010     895.1      10.9       7.9     628.0     272.7    1449.6      47.8    2808.9

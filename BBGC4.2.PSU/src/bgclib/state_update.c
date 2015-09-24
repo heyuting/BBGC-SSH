@@ -51,7 +51,8 @@ int daily_water_state_update(wflux_struct* wf, wstate_struct* ws)
 	
 	/* the following special case prevents evaporation under very
 	dry conditions from causing a negative soilwater content */
-	if (ws->soilw < 0.0)        /* negative soilwater */
+//	if (ws->soilw < 0.0)        /* negative soilwater */
+	if (ws->soilw < 100) 	//we should use theta_r instead of 0, Y.He 06/30/15
 	{
 		/* add back the evaporation and transpiration fluxes, and
 		set these fluxes to 0.0 */

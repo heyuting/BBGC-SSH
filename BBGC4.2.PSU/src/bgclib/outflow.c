@@ -17,12 +17,7 @@ wflux_struct* wf)
 	and maximum soilwater */
 	int ok=1;
 	/* water in excess of saturation to outflow */
-	//edited by Y.He, but I don't know if this make sense
-	//change ws->soilw to ws->soilWobs
-	/*if (ws->soilWobs > sitec->soilw_sat)  
-	{
-		wf->soilw_outflow = ws->soilWobs - sitec->soilw_sat;
-	}*/
+	//this was model output soil outflow calculated with modeled soil moisture
 	if (ws->soilw > sitec->soilw_sat)  
         {
                 wf->soilw_outflow = ws->soilw - sitec->soilw_sat;
@@ -37,7 +32,13 @@ wflux_struct* wf)
 	{
 		wf->soilw_outflow = 0.0;
 	}
-
+	
+	//to conserve mass of water, Y. He, Jun 08, 2015
+	wf->soilw_outflow_dummy = wf->soilw_outflow + ws->soilw - ws->soilWobs;
+	if (wf->soilw_outflow_dummy < 0.0)
+	{
+		wf->soilw_outflow_dummy = 0.0;
+	}	
 	return(!ok);
 }
 

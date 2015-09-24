@@ -48,7 +48,7 @@ int daymet(const metarr_struct* metarr, metvar_struct* metv, wstate_struct* ws, 
 	metv->vpd = metarr->vpd[metday];
 
 	/* daylight average	shortwave flux density (W/m2) */
-	metv->swavgfd =  metarr->swavgfd[metday];
+	metv->swavgfd = metarr->swavgfd[metday];
 	
 	/* PAR (W/m2) */
 	metv->par = metarr->par[metday];

@@ -54,7 +54,7 @@ double all_lai, wflux_struct* wf);
 int snowmelt(const metvar_struct* metv, wflux_struct* wf, double snoww);
 int baresoil_evap(const metvar_struct* metv, wflux_struct* wf, double* dsr_ptr);
 int soilpsi(const siteconst_struct* sitec, double soilWobs, double* psi,
-double* vwc_out); //changed from soilw to soilWobs; -- Y.He Oct/29/14
+double* vwc_out, wstate_struct* ws); //changed from soilw to soilWobs; -- Y.He Oct/29/14
 int maint_resp(const cstate_struct* cs, const nstate_struct* ns,
 const epconst_struct* epc, const metvar_struct* metv, cflux_struct* cf,
 epvar_struct* epv);

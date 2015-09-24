@@ -75,7 +75,8 @@ ntemp_struct* nt, wstate_struct* ws, phenology_struct* phen, double naddfrac, in
 	}
 	else
 	{
-		day_mresp = cf->leaf_day_mr + cf->leaf_night_mr + cf->froot_mr;	      }
+		day_mresp = cf->leaf_day_mr + cf->leaf_night_mr + cf->froot_mr;	
+        }
 	avail_c = day_gpp - day_mresp;
 	
 	/* no allocation when the daily C balance is negative */
@@ -256,6 +257,7 @@ ntemp_struct* nt, wstate_struct* ws, phenology_struct* phen, double naddfrac, in
 		if (nt->potential_immob)
 		{
 			fpi = actual_immob/nt->potential_immob;
+			//printf("%f\n",fpi);
 		}
 		else
 		{
@@ -282,6 +284,7 @@ ntemp_struct* nt, wstate_struct* ws, phenology_struct* phen, double naddfrac, in
 			plant_nalloc = nf->retransn_to_npool + nf->sminn_to_npool;
 			plant_calloc = plant_nalloc * (c_allometry / n_allometry);
 			excess_c = avail_c - plant_calloc;
+			cf->excess_c = excess_c;
 			cf->psnsun_to_cpool -= excess_c * (cf->psnsun_to_cpool/day_gpp);
 			cf->psnshade_to_cpool -= excess_c * (cf->psnshade_to_cpool/day_gpp);
 		}

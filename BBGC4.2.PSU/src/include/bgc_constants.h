@@ -61,13 +61,13 @@ Iribane, J.V., and W.L. Godson, 1981. Atmospheric Thermodynamics. 2nd
 #define	RFS2S3		0.46    /* transfer from soil 2 to soil 3 */
 #define	RFS3S4		0.55	/* transfer from soil 3 to soil 4 */
 /* base decomposition rate constants (1/day) */ 
-#define KL1_BASE	0.7		/* labile litter pool */
-#define KL2_BASE	0.07	/* cellulose litter pool */
-#define KL4_BASE	0.014	/* lignin litter pool */
-#define KS1_BASE	0.07	/* fast microbial recycling pool */
-#define KS2_BASE	0.014	/* medium microbial recycling pool */
-#define KS3_BASE	0.0014	/* slow microbial recycling pool */
-#define KS4_BASE	0.00014	/* recalcitrant SOM (humus) pool */
+#define KL1_BASE	0.84   /*0.7		 labile litter pool */
+#define KL2_BASE	0.084	/*  0.07      cellulose litter pool */
+#define KL4_BASE	0.0168	/*  lignin litter pool */
+#define KS1_BASE	0.084	/* 0.07 fast microbial recycling pool */
+#define KS2_BASE	0.0168	/* medium microbial recycling pool */
+#define KS3_BASE	0.00168	/* slow microbial recycling pool */
+#define KS4_BASE	0.00012	/* recalcitrant SOM (humus) pool */
 #define KFRAG_BASE	0.001	/* physical fragmentation of coarse woody debris */
 
 /* use this block of constants to exclude the dynamics for slowest soil pool (s4) */

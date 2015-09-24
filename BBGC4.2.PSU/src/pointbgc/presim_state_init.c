@@ -17,7 +17,11 @@ cinit_struct* cinit)
 	int ok=1;
 	
 	ws->soilw = 0.0;
+
 	ws->soilWobs = 0.0; //added by Y.He or initialize with obs???
+	ws->soilw_sat_obs = 0.0;
+	ws->soilw_fc_obs =0.0;
+
 	ws->snoww = 0.0;
 	ws->canopyw = 0.0;
 	ws->prcp_src = 0.0;

@@ -577,7 +577,7 @@ int bgc(bgcin_struct* bgcin, bgcout_struct* bgcout, int mode)
 			bgc_printf(BV_DIAG, "%d\t%d\tdone bare_soil evap\n",simyr,yday);
 
 			/* soil water potential *///change ws.soilw to ws.soilWobs -- Y.He Oct/29/14
-			if (ok && soilpsi(&sitec, ws.soilWobs, &epv.psi, &epv.vwc))
+			if (ok && soilpsi(&sitec, ws.soilWobs, &epv.psi, &epv.vwc, &ws))
 			{
 				bgc_printf(BV_ERROR, "Error in soilpsi() from bgc()\n");
 				ok=0;

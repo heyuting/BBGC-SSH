@@ -45,10 +45,20 @@ metvar_struct* metv, epvar_struct* epv, double albedo)
 	{
 		/* Calculate whole-canopy projected and all-sided LAI */
 
-
 		epv->proj_lai = cs->leafc * epc->avg_proj_sla;
-   
-		//if(metv->tmax>25) added by Yuting He, change SLA, not physical, just test---]
+
+/*               if(epv->gl_s_sun<0.0045&&epv->proj_lai>=4)
+		{
+			epv->proj_lai = cs->leafc * epc->avg_proj_sla * (220*epv->gl_s_sun-0.1);//modified by Y.He 01/28/2015
+   			if(epv->proj_lai < 1.5)
+				epv->proj_lai = 1.5;
+		}
+		else
+		{	
+			epv->proj_lai = cs->leafc * epc->avg_proj_sla;
+		}
+		
+*/		//if(metv->tmax>25) added by Yuting He, change SLA, not physical, just test---]
 		  //epv->proj_lai=epv->proj_lai *pow((2-metv->tmax/25),1.5); done here-----]
         
 		epv->all_lai = epv->proj_lai * epc->lai_ratio;
